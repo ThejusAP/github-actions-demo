@@ -1,0 +1,26 @@
+name: Cache + Artifact Demo
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - run: mkdir output && echo "hello world" > output/file.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: my-file
+          path: output/
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: my-file
+
+      - run: cat output/file.txt
