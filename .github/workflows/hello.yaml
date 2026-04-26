@@ -39,7 +39,7 @@ jobs:
         
         steps:
         - name: Test job step
-          run: echo "This is the test job"
+          run: echo "This is a test job"
         - name: Echo event name
           run: echo "Triggered by ${{ github.event_name }}"
 
