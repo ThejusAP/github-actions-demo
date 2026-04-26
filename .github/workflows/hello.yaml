@@ -2,9 +2,11 @@ name: Hello World - my first flow
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
     build:
@@ -16,4 +18,16 @@ jobs:
 
         - name: Hello world action step
           run: echo "Hello world from my first workflow"
+        
+        - name: Run tests
+          run: echo "Running tests..."
+
+    deploy:
+        runs-on: ubuntu-latest
+        needs: build
+
+        steps:
+        - name: Deploy action step
+          run: echo "Deploying application..."
+
 
