@@ -7,14 +7,14 @@ on:
                 description: 'Your name'
                 required: true
                 default: 'World'
-    push:
-        branches:
-            - main
+    # push:
+    #     branches:
+    #         - main
     #     tags:
     #         - 'v*.*.*'
-    pull_request:
-        branches:
-            - main
+    # pull_request:
+    #     branches:
+    #         - main
 
     # schedule:
     #     - cron: '0 0 * * *' # Runs every day at midnight
