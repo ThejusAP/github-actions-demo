@@ -7,6 +7,11 @@ on:
         description: 'Your name'
         required: true
         default: 'World'
+  workflow_call:
+    inputs:
+      name:
+        type: string
+        default: 'World'
 
 jobs:
   job1:

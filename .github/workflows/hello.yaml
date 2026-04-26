@@ -1,12 +1,18 @@
 name: Hello World - my first flow
 
 on:
-    workflow_dispatch:
-        inputs:
-            name:
-                description: 'Your name'
-                required: true
-                default: 'World'
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Your name'
+        required: true
+        default: 'World'
+  workflow_call:
+    inputs:
+      name:
+        type: string
+        default: 'World'
+    
     # push:
     #     branches:
     #         - main

@@ -1,0 +1,31 @@
+name: Main Workflow Caller
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  actions_test:
+    uses: ./.github/workflows/actions-test.yaml
+
+  cache_artifact_demo:
+    uses: ./.github/workflows/cache_artifact-demo.yaml
+
+  hello_demo:
+    uses: ./.github/workflows/hello.yaml
+    with:
+      name: GitHub
+
+  hostname_demo:
+    uses: ./.github/workflows/hostname.yaml
+    with:
+      name: Runner
+
+  matrix_execution:
+    uses: ./.github/workflows/matrix_execution.yaml
+
+  secrets_demo:
+    uses: ./.github/workflows/secrets.yaml
+    secrets: inherit
