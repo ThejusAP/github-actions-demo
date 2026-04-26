@@ -1,7 +1,7 @@
 name: Cache + Artifact Demo
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
   workflow_call:
 
 jobs:
