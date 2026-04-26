@@ -23,24 +23,33 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        timeout-minutes: 15
 
         steps:
         - name: Checkout repository
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
 
         - name: Hello world action step
           run: echo "Hello world from my first workflow"
-        
+
         - name: Run tests
           run: echo "Running tests..."
 
     test:
         runs-on: ubuntu-latest
-        
+        timeout-minutes: 15
+
         steps:
         - name: Test job step
           run: echo "This is the test job"
+
         - name: Echo event name
           run: echo "Triggered by ${{ github.event_name }}"
+
+        - name: Echo test input
+          run: echo "test example"
+          continue-on-error: true
+
+
 
 

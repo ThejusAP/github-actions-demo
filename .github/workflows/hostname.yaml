@@ -1,0 +1,16 @@
+name: Runner Test
+
+on: push
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is job 1"
+      - run: hostname
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is job 2"
+      - run: hostname
