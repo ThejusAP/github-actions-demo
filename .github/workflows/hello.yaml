@@ -7,12 +7,18 @@ on:
                 description: 'Your name'
                 required: true
                 default: 'World'
-    # push:
-    #     branches:
-    #         - main
-    # pull_request:
-    #     branches:
-    #         - main
+    push:
+        branches:
+            - main
+    #     tags:
+    #         - 'v*.*.*'
+    pull_request:
+        branches:
+            - main
+
+    # schedule:
+    #     - cron: '0 0 * * *' # Runs every day at midnight
+    
 
 jobs:
     build:
@@ -28,12 +34,13 @@ jobs:
         - name: Run tests
           run: echo "Running tests..."
 
-    deploy:
+    test:
         runs-on: ubuntu-latest
-        needs: build
-
+        
         steps:
-        - name: Deploy action step
-          run: echo "Deploying application..."
+        - name: Test job step
+          run: echo "This is the test job"
+        - name: Echo event name
+          run: echo "Triggered by ${{ github.event_name }}"
 
 
